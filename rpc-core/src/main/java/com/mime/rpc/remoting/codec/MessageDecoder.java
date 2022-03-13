@@ -1,6 +1,5 @@
 package com.mime.rpc.remoting.codec;
 
-import com.mime.rpc.entity.RpcMessage;
 import com.mime.rpc.entity.RpcRequest;
 import com.mime.rpc.entity.RpcResponse;
 import com.mime.rpc.enumeration.PackageType;
@@ -26,7 +25,7 @@ public class MessageDecoder extends LengthFieldBasedFrameDecoder {
     public MessageDecoder() {
         //lengthFieldOffset:魔数为4B，数据包类型4B，序列化选择算法4B，然后是全长。所以长度起始值为12
         //lengthFieldLength:表示长度的位长度是4B。所以值为4(注意这个长度是整个数据包的长度，而非除去了魔数、请求类型等等的长度)，而这样会影响第三个字段
-        //lengthAdjustment:如果这个全长是整个数据包长度，那么这里就要调整位-8。如果仅仅是剩下数据实体的长度就不需要调整添0即刻
+        //lengthAdjustment:如果这个全长是整个数据包长度，那么这里就要调整位-12。如果仅仅是剩下数据实体的长度就不需要调整添0即刻
         //initialBytesToStrip:我们将手动检查魔数，因此不要删除任何字节。所以值为0
         this(MAX_FRAME_LENGTH, 12, 4, 0, 0);
     }

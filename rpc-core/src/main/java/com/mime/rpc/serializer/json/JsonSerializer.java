@@ -50,7 +50,7 @@ public class JsonSerializer implements CommonSerializer {
     /**
      * 这里由于使用JSON序列化和反序列化RpcRequest中的Object数组（参数数组）
      * 无法保证反序列化后仍然为原实例类型，需要重新判断处理
-     * 本质原因时JSON格式中不保存类型信息
+     * 本质原因是JSON格式中不保存类型信息
      *
      * 在RpcRequest反序列化时，由于其中有一个字段是Object数组，
      * 在反序列化时序列化器会根据字段类型进行反序列化，而Object就是一个十分模糊的类型，

@@ -63,7 +63,7 @@ public abstract class AbstractRpcServer implements RpcServer {
                 String serviceName = clazz.getAnnotation(Service.class).name();
                 Object obj;
                 try {
-                    //创建空参实例
+                    //创建空参实例 clazz.getConstructor().newInstance()
                     obj = clazz.newInstance();
                 } catch (InstantiationException | IllegalAccessException e) {
                     logger.error("创建 " + clazz + " 时有错误发生");

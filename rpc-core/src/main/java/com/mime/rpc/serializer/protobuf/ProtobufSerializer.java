@@ -12,7 +12,12 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 使用ProtoBuf的序列化器 麻烦
+ * 使用ProtoBuf的序列化器 麻烦  但是JAVA语言可以使用 protostuff
+ * 首先要编写.proto格式的配置文件，再通过protobuf提供的工具生成各种语言响应的代码。
+ * 由于java具有反射和动态代码生成的能力，这个预编译过程不是必须的，可以在代码执行时来实现。
+ * protostuff-runtime实现了无需预编译对java bean进行protobuf序列化/反序列化的能力。
+ * protostuff-runtime的局限是序列化前需预先传入schema
+ * 反序列化不负责对象的创建只负责复制，因而必须提供默认构造函数。
  */
 public class ProtobufSerializer implements CommonSerializer {
 

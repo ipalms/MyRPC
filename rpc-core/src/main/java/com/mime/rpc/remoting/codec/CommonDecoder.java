@@ -24,7 +24,7 @@ import java.util.List;
  *   |                                                                                                       |
  *   |                                        ... ...                                                        |
  *   +-------------------------------------------------------------------------------------------------------+
- * 4B  magic code（魔法数）  4B messageType（数据包类型） 4B  serializerCode（序列化算法）
+ * 4B  magic code（魔数）  4B messageType（数据包类型） 4B  serializerCode（序列化算法）
  * 4B full length（消息长度）  body（object类型数据）
  * <p>
  */

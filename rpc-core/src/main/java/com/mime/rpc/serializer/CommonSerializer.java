@@ -20,6 +20,9 @@ public interface CommonSerializer {
 
     Integer DEFAULT_SERIALIZER = KRYO_SERIALIZER;
 
+    /**
+     * 应当单例设计---这里先不管了
+     */
     static CommonSerializer getByCode(int code) {
         switch (code) {
             case 0:

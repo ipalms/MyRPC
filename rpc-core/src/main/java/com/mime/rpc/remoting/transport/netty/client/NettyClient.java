@@ -62,6 +62,7 @@ public class NettyClient implements RpcClient {
                 //连接超时的时间
                 //如果超过此时间或无法建立连接，则连接失败。
                 .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 20000)
+                .option(ChannelOption.TCP_NODELAY,true)
                 //channel连接建立后会初始化添加这些channel
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override

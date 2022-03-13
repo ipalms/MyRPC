@@ -14,6 +14,13 @@ import java.io.IOException;
 
 /**
  * 基于Hessian协议的序列化器  效率差一点
+ * Hessian序列化是一种支持动态类型、跨语言、基于对象传输的网络协议。
+ * Java对象序列化的二进制流可以被其它语言反序列化。
+ * Hessian协议的特性：
+ * ① 自描述序列化类型，不依赖外部描述文件，用一个字节表示常用基础类型，极大缩短二进制流。
+ * ② 语言无关，支持脚本语言。
+ * ③ 协议简单，比Java原生序列化高效。
+ * Hessian会把复杂对象所有属性存储在一个Map中序列化，当父类和子类存在同名成员变量时会先序列化子类再序列化父类，因此子类值会被父类覆盖。
  */
 public class HessianSerializer implements CommonSerializer {
 

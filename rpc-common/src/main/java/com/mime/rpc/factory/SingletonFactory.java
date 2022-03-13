@@ -1,7 +1,7 @@
 package com.mime.rpc.factory;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 单例工厂--首先会减少频繁创建对象的成本
@@ -10,7 +10,7 @@ import java.util.Map;
 public class SingletonFactory {
 
     //hashmap存储class文件对应对象
-    private static Map<Class, Object> objectMap = new HashMap<>();
+    private static Map<Class, Object> objectMap = new ConcurrentHashMap<>();
 
     private SingletonFactory() {}
 
@@ -19,7 +19,7 @@ public class SingletonFactory {
         Object instance = objectMap.get(clazz);
         if(instance==null){
             synchronized (clazz) {
-                if(instance == null) {
+                if(objectMap.get(clazz) == null) {
                     try {
                         //未缓存过就进行创建并缓存
                         instance = clazz.newInstance();
